@@ -3,12 +3,14 @@ package dragontiles;
 import java.util.ArrayList;
 
 /**
- *
+ * 
  * @author Carter
  */
 public class Game {
     private String name;
-    private ArrayList<Map> maps = new ArrayList<>();
+    private ArrayList<String> maps = new ArrayList<>();
+    private ArrayList<Token> tokens = new ArrayList<>();
+    private ArrayList<Tile> tiles = new ArrayList<>();
     private Map curMap;
     
     /**
@@ -19,7 +21,7 @@ public class Game {
     public Game (String name, Map map) {
         this.name = name;
         curMap = map;
-        maps.add(map);
+        maps.add(map.getName());
     }
     
     /**
@@ -39,6 +41,33 @@ public class Game {
     }
     
     /**
+     * 
+     * @return 
+     */
+    public ArrayList<String> getMaps() { return maps; }
+    
+    /**
+     * 
+     * @param mapName 
+     */
+    public void addMap(String mapName) { maps.add(mapName); }
+    
+    /**
+     * 
+     * @param mapName 
+     */
+    public void loadMap(String mapName) {
+        // TODO load map
+    }
+    
+    /**
+     * 
+     */
+    public void saveMap() {
+        curMap.saveMap();
+    }
+    
+    /**
      *
      * @return
      */
@@ -52,6 +81,13 @@ public class Game {
      */
     public void setCurMap(Map map) {
         curMap = map;
+    }
+    
+    /**
+     * Load the game and map data
+     */
+    public void loadGame() {
+        // TODO load game data and current map
     }
     
 }

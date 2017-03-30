@@ -44,7 +44,7 @@ public class GameMaster {
     }
     
     /**
-     *
+     * Display the toolbar at the top of the screen
      */
     public void topBar() {
         ToolBar toolBar = new ToolBar(
@@ -60,17 +60,17 @@ public class GameMaster {
     }
     
     /**
-     *
+     * Display the map in the center of the screen
      */
     public void map() {
-        
+        // TODO
     }
     
     /**
-     *
+     * Display the clipboard on the right side of the screen
      */
     public void sideBar() {
-        
+        // TODO
     }
     
     class ButtonHandler implements EventHandler<ActionEvent> {

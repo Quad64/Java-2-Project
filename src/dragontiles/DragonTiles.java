@@ -36,7 +36,7 @@ public class DragonTiles extends Application {
     }
 
     /**
-     *
+     * Create a new Game and the starting map
      * @param name
      * @param mapName
      */
@@ -46,6 +46,11 @@ public class DragonTiles extends Application {
         Map map = new Map(mapName);
         Game game = new Game(name, map);
         GameMaster gm = new GameMaster(game, mainPane, primaryStage);
+        // TODO create a save file for the game
+    }
+    
+    public void loadGame() {
+        
     }
 
     /**
