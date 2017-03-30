@@ -15,9 +15,8 @@ import javafx.stage.Stage;
 public class DragonTiles extends Application {
 
     private Stage primaryStage;
+    // Main pane will be passed to each of the screens
     private BorderPane mainPane = new BorderPane();
-
-    TextField txt_newGame = new TextField();
 
     @Override
     public void start(Stage primaryStage) {
@@ -36,6 +35,11 @@ public class DragonTiles extends Application {
 
     }
 
+    /**
+     *
+     * @param name
+     * @param mapName
+     */
     public void newGame(String name, String mapName) {
         String format = String.format("Dragon Tiles: %s - %s", name, mapName);
         primaryStage.setTitle(format);

@@ -27,6 +27,12 @@ public class GameMaster {
     Button btn_playerScreen = new Button("Show Player Screen");
     Button btn_settings = new Button("Settings");
     
+    /**
+     *
+     * @param game
+     * @param root
+     * @param primaryStage
+     */
     public GameMaster(Game game, BorderPane root, Stage primaryStage) {
         this.root = root;
         this.game = game;
@@ -37,6 +43,9 @@ public class GameMaster {
         topBar();
     }
     
+    /**
+     *
+     */
     public void topBar() {
         ToolBar toolBar = new ToolBar(
                 btn_file,
@@ -50,10 +59,16 @@ public class GameMaster {
         root.setTop(toolBar);
     }
     
+    /**
+     *
+     */
     public void map() {
         
     }
     
+    /**
+     *
+     */
     public void sideBar() {
         
     }

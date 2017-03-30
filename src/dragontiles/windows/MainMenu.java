@@ -27,10 +27,13 @@ public class MainMenu {
 
     private Label title = new Label("Dragon Tiles");
 
+    // Main screen buttons
     private Button btn_continue = new Button("Continue Game");
     private Button btn_newGame = new Button("New Game");
     private Button btn_loadGame = new Button("Load Game");
     private Button btn_exit = new Button("Exit");
+    
+    // New game buttons
     private Button btn_submit = new Button("Submit");
     private Button btn_back = new Button("Back");
 
@@ -39,6 +42,8 @@ public class MainMenu {
 
     /**
      *
+     * @param mainPane
+     * @param primaryStage
      * @param root
      */
     public MainMenu(BorderPane mainPane, Stage primaryStage, DragonTiles root) {
@@ -56,12 +61,14 @@ public class MainMenu {
         btn_submit.setOnAction(buttonHandler);
         btn_back.setOnAction(buttonHandler);
 
-        btn_continue.setMaxWidth(100);
-        btn_newGame.setMaxWidth(100);
-        btn_loadGame.setMaxWidth(100);
-        btn_exit.setMaxWidth(100);
-        btn_submit.setMaxWidth(100);
-        btn_back.setMaxWidth(100);
+        // Set the buttons to be the same size
+        int buttonSize = 100;
+        btn_continue.setMaxWidth(buttonSize);
+        btn_newGame.setMaxWidth(buttonSize);
+        btn_loadGame.setMaxWidth(buttonSize);
+        btn_exit.setMaxWidth(buttonSize);
+        btn_submit.setMaxWidth(buttonSize);
+        btn_back.setMaxWidth(buttonSize);
 
         // TODO disable btn_continue when there are no save file
         btn_continue.setDisable(true);
@@ -69,6 +76,9 @@ public class MainMenu {
         BorderPane.setAlignment(title, Pos.CENTER);
     }
 
+    /**
+     * Shows the main menu for the application
+     */
     public void title() {
         mainPane.getChildren().clear();
 
@@ -84,6 +94,10 @@ public class MainMenu {
         mainPane.setCenter(vbox);
     }
 
+    /**
+     * Shows the new game menu where the user enters the paramaters for a game
+     * they would like to make
+     */
     public void newGame() {
         mainPane.getChildren().clear();
 
@@ -100,10 +114,16 @@ public class MainMenu {
         mainPane.setCenter(inputPane);
     }
 
+    /**
+     * Checks if the input from the user in the New Game screen is valid then
+     * calls the Dragon Tiles class to switch to the Game Master screen
+     */
     public void createGame() {
         boolean hasGameTitle;
         boolean hasMapTitle;
 
+        // used for displaying errors at the bottom of the screen if the user
+        // enteres invalid data
         VBox error = new VBox();
         error.setAlignment(Pos.CENTER);
         error.getChildren().clear();
@@ -111,6 +131,7 @@ public class MainMenu {
         String name = txt_gameName.getText();
         String mapName = txt_mapName.getText();
 
+        // Check if the user has entered a name for the game
         if (name.isEmpty()) {
             hasGameTitle = false;
             error.getChildren().add(new Label("Please enter a name for the game"));
@@ -118,6 +139,7 @@ public class MainMenu {
             hasGameTitle = true;
         }
 
+        // Check if the user has entered a name for the starting map
         if (mapName.isEmpty()) {
             hasMapTitle = false;
             error.getChildren().add(new Label("Please enter a name for the map"));
@@ -126,13 +148,20 @@ public class MainMenu {
         }
 
         if (hasGameTitle && hasMapTitle) {
+            
+            // Clear the screen and show a loading message in the event that it
+            // is taking a moment for the game to start
             mainPane.getChildren().clear();
             mainPane.setCenter(new Label("Loading..."));
+            
             root.newGame(name, mapName);
+            
         } else {
+            
             mainPane.getChildren().clear();
             newGame();
             mainPane.setBottom(error);
+            
         }
     }
 
