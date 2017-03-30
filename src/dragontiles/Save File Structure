@@ -1,0 +1,19 @@
+Current idea for how games will probably be saved
+
+FILE Settings
+FOLDER [Game Name] (1 for each game)
+  FILE Game Parameters
+  FILE Tokens
+  FILE Tiles
+  FOLDER Maps
+    FILE [Map Name] (1 for each map)
+  FOLDER Images
+    FOLDER Tokens
+      IMG files
+    FOLDER Tiles
+      IMG files
+    
+Settings
+  User settings such as what game was open last and how the program should look
+Game Parameters
+  Holds data for the game as a whole, such as what is the current map that should be displayed
